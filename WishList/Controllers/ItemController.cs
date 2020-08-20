@@ -29,17 +29,17 @@ namespace WishList.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Models.Item items)
+        public IActionResult Create(Models.Item item)
         {
-            _context.Items.Add(items);
+            _context.Items.Add(item);
             _context.SaveChanges();
             return View("Index");
         }
 
         public IActionResult Delete(int Id)
         {
-            var itemId = _context.Items.FirstOrDefault(item => item.Id == Id);
-            _context.Items.Remove(itemId);
+            var item = _context.Items.FirstOrDefault(item => item.Id == Id);
+            _context.Items.Remove(item);
             _context.SaveChanges();
             return View("Index");
         }
